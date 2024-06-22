@@ -36,7 +36,7 @@ export const TextNode = ({ id, data }) => {
       <div className='text-area-container'>
         <label>
           Text:
-          <textarea className='text-area'
+          <textarea className='text-area nodrag'
             value={currText}
             onChange={(e) => {
               handleTextChange(e);

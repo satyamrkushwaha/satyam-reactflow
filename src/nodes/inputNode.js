@@ -27,11 +27,12 @@ export const InputNode = ({ id, data }) => {
             type="text" 
             value={currName} 
             onChange={handleNameChange} 
+            className="nodrag"
           />
         </label>
         <label>
           Type:
-          <select value={inputType} onChange={handleTypeChange}>
+          <select value={inputType} onChange={handleTypeChange} className="nodrag">
             <option value="Text">Text</option>
             <option value="File">File</option>
           </select>

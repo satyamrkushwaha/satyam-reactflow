@@ -13,8 +13,6 @@ import { TextNode } from './nodes/textNode';
 import { abInputNode } from './nodes/abstractedNodes/abInputNode';
 import { abLlmNode } from './nodes/abstractedNodes/abLlmNode';
 import { AbOutputNode } from './nodes/abstractedNodes/abOutputNode';
-
-
 import 'reactflow/dist/style.css';
 
 const gridSize = 20;

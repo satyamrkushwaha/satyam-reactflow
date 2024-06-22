@@ -29,6 +29,7 @@ export const OutputNode = ({ id, data }) => {
         <label>
           Name:
           <input 
+          className="nodrag"
             type="text" 
             value={currName} 
             onChange={handleNameChange} 
@@ -36,7 +37,7 @@ export const OutputNode = ({ id, data }) => {
         </label>
         <label>
           Type:
-          <select value={outputType} onChange={handleTypeChange}>
+          <select value={outputType} onChange={handleTypeChange} className="nodrag">
             <option value="Text">Text</option>
             <option value="File">Image</option>
           </select>

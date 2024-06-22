@@ -11,6 +11,15 @@ export default function NodeWrapper({ id, data, label, fields, sourceHandles, ta
             [field]: e.target.value,
         }));
     };
+
+    useState(() => {
+        setState((prevState) => ({
+            ...prevState,
+            inputName: data?.inputName || id.replace('customInput-', 'input_'),
+            outputName: data?.outputName || id.replace('customOutput-', 'output_'),
+        }));
+    }, []);
+
     return (
         <div className='main-node-container'>
             <div className='node-title-style'>
@@ -21,7 +30,7 @@ export default function NodeWrapper({ id, data, label, fields, sourceHandles, ta
                     <label key={field}>
                         {label}:
                         {type === 'select' ? (
-                            <select value={state[field]} onChange={handleChange(field)}>
+                            <select value={state[field]} onChange={handleChange(field)} className="nodrag">
                                 {field === 'inputType' && (
                                     <>
                                         <option value="Text">Text</option>
@@ -37,6 +46,7 @@ export default function NodeWrapper({ id, data, label, fields, sourceHandles, ta
                             </select>
                         ) : (
                             <input
+                                className="nodrag"
                                 type="text"
                                 value={state[field]}
                                 onChange={handleChange(field)}
