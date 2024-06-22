@@ -1,19 +1,14 @@
 import React from 'react'
 import NodeWrapper from '../../abstractNode/nodeWrapper'
-export const TextNode = ({ id, data }) => {
-    const defaultState = {
-      text: data?.text || '{{input}}',
-    };
-  
+export const AbTextNode = (props) => {
     const fields = [{ label: 'Text', type: 'text', field: 'text' }];
-    const sourceHandles = [{ id: `${id}-output`, position: 'Right' }];
+    const sourceHandles = [{ id: `${props.id}-output`, position: 'Right' }];
     const targetHandles = [];
   
     return (
       <NodeWrapper
-        id={id}
+        {...props}
         label="Text"
-        defaultState={defaultState}
         fields={fields}
         sourceHandles={sourceHandles}
         targetHandles={targetHandles}

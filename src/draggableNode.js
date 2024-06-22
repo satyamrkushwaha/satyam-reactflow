@@ -3,7 +3,6 @@
 import { MdInput, MdOutput, MdOutlineTextSnippet, } from "react-icons/md";
 import { FaCirclePlay } from "react-icons/fa6";
 
-
 const typeToIcon = {
   customInput: MdInput,
   llm: FaCirclePlay,
@@ -14,7 +13,8 @@ const typeToIcon = {
   AbCustomInput: MdInput,
   Abllm: FaCirclePlay,
   AbCustomOutput: MdOutput,
-  text: MdOutlineTextSnippet,
+  AbText: MdOutlineTextSnippet,
+
 };
 
 export const DraggableNode = ({ type, label }) => {
@@ -26,6 +26,11 @@ export const DraggableNode = ({ type, label }) => {
   };
 
   const IconComponent = typeToIcon[type];
+
+  let bgColor = "#1C2536";
+  if (type.startsWith("Ab")) {
+    bgColor = 'rgba(28, 37, 54, 0.6)';
+  }
 
   return (
     <div
@@ -39,20 +44,14 @@ export const DraggableNode = ({ type, label }) => {
         display: 'flex',
         alignItems: 'center',
         borderRadius: '8px',
-        backgroundColor: '#1C2536',
+        backgroundColor: bgColor,
         justifyContent: 'center',
         flexDirection: 'column'
       }}
       draggable
     >
       <div style={{ color: '#fff' }} className="draggable-node">{IconComponent && <IconComponent size={24} />}
-
-        <span>
-          {label}
-        </span>
-
-
-
+        <span>{label}</span>
       </div>
     </div>
   );

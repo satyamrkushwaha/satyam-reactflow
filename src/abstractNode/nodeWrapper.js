@@ -17,6 +17,7 @@ export default function NodeWrapper({ id, data, label, fields, sourceHandles, ta
             ...prevState,
             inputName: data?.inputName || id.replace('customInput-', 'input_'),
             outputName: data?.outputName || id.replace('customOutput-', 'output_'),
+            text: data?.text || '{{input}}',
         }));
     }, []);
 

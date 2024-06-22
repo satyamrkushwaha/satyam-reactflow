@@ -13,6 +13,7 @@ import { TextNode } from './nodes/textNode';
 import { abInputNode } from './nodes/abstractedNodes/abInputNode';
 import { abLlmNode } from './nodes/abstractedNodes/abLlmNode';
 import { AbOutputNode } from './nodes/abstractedNodes/abOutputNode';
+import { AbTextNode } from './nodes/abstractedNodes/abTextNode';
 import 'reactflow/dist/style.css';
 
 const gridSize = 20;
@@ -26,8 +27,7 @@ const nodeTypes = {
   AbCustomInput: abInputNode,
   Abllm: abLlmNode,
   AbCustomOutput: AbOutputNode,
-
-
+  AbText:AbTextNode,
 };
 
 const selector = (state) => ({
