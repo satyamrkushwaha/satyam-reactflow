@@ -10,6 +10,13 @@ code {
     monospace;
 }
 
+.pipeline-toolbar-container{
+  padding: 0px 10px 20px;
+  -webkit-box-shadow: 0px 11px 10px -7px rgba(171,171,171,0.72);
+  -moz-box-shadow: 0px 11px 10px -7px rgba(171,171,171,0.72);
+  box-shadow: 0px 11px 10px -7px rgba(171,171,171,0.72);
+}
+
 
 .main-node-container {
   min-width: 200px;
@@ -96,4 +103,12 @@ select {
   padding: 6px 8px;
   border-radius: 4px;
   border: 1px solid rgb(28, 37, 54, 1) !important;
+}
+
+.submit-btn{
+  color: rgb(255, 255, 255);
+  background-color:  rgb(28, 37, 54, 1) ;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
 }
