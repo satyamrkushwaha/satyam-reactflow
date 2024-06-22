@@ -1,16 +1,32 @@
 // textNode.js
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Handle, Position } from 'reactflow';
-import { MdOutlineTextSnippet } from "react-icons/md";
+
 
 
 export const TextNode = ({ id, data }) => {
   const [currText, setCurrText] = useState(data?.text || '{{input}}');
 
+  const [variables, setVariables] = useState([]);
+
+  const extractVariables = (text) => {
+    const regex = /{{\s*(\w+)\s*}}/g;
+    const matches = [];
+    let match;
+    while ((match = regex.exec(text)) !== null) {
+      matches.push(match[1]);
+    }
+    return matches;
+  };
+
   const handleTextChange = (e) => {
     setCurrText(e.target.value);
   };
+
+  useEffect(() => {
+    setVariables(extractVariables(currText));
+  }, [currText]);
 
   return (
     <div className='main-node-container'>
@@ -31,6 +47,17 @@ export const TextNode = ({ id, data }) => {
           />
         </label>
       </div>
+      {variables.map((variable, index) => (
+        <Handle
+          key={`${id}-${variable}-${index}`}
+          type="target"
+          position={Position.Left}
+          id={`${id}-${variable}`}
+          style={{
+            top: `${((index + 1) / (variables.length + 1)) * 100}%`,
+          }}
+        />
+      ))}
       <Handle
         type="source"
         position={Position.Right}

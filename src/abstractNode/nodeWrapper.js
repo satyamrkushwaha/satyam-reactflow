@@ -12,11 +12,11 @@ export default function NodeWrapper({ id, data, label, fields, sourceHandles, ta
         }));
     };
     return (
-        <div style={{ width: 200, height: 80, border: '1px solid black'}}>
-            <div>
+        <div className='main-node-container'>
+            <div className='node-title-style'>
                 <span>{label}</span>
             </div>
-            <div>
+            <div className='input-area-container'>
                 {fields.map(({ label, type, field }) => (
                     <label key={field}>
                         {label}:
